@@ -1,12 +1,12 @@
 require 'spec_helper'
 
 RSpec.describe 'User' do
-    let(:user) {User.new(new: 'たろう', age: age )}
+    let(:user) { User.new(new: 'たろう', age: age) }
     shared_context '12歳の場合' do
-        let(:age) {12}
+        let(:age) { 12 }
     end
     shared_context '13歳の場合' do
-        let(:age) {13}
+        let(:age) { 13 }
     end
 
     describe '#greet' do
@@ -22,14 +22,14 @@ RSpec.describe 'User' do
     end
 
     describe '#child?' do
-        subject {user.child?}
+        subject { user.child? }
         context '12歳以下の場合' do
             include_context '12歳の場合'
-            it {is_expected.to eq true}
+            it { is_expected.to eq true }
         end
         context '13歳以上の場合' do
             include_context '13歳の場合'
-            it {is_expected.to eq false}
+            it { is_expected.to eq false }
         end
     end
 end
